@@ -29,7 +29,7 @@ def upload_button():
             dbc.Button(
                 "Load Json",
                 id = "upload-json-button",
-                color = "secondary",
+                color = "primary",
                 size = "lg",
                 className = "mr-1"
             ),
@@ -81,7 +81,7 @@ def names_content(name_list = list()):
             dbc.Button(
                 "Start Game",
                 id = "start-game-button",
-                color = "secondary",
+                color = "primary",
                 size = "lg",
                 className = "mr-1"
             ),
@@ -97,7 +97,7 @@ def names_content(name_list = list()):
         dbc.Button(
             "👥 Add Player 👥",
             id = "add-player-button",
-            color = "secondary",
+            color = "primary",
             block = True
         )
     )
@@ -385,7 +385,7 @@ def game_content(table_dict, game_history, points_development, handout_mistakes,
                 width = bar_widths, 
                 text = handout_y, 
                 textposition="auto", 
-                marker_color = "rgb(223, 105, 26)",
+                marker_color = "#007BFF",
                 textfont = dict(color = "rgb(255, 255, 255)")
             )
         ]
@@ -416,7 +416,7 @@ def game_content(table_dict, game_history, points_development, handout_mistakes,
                 width = bar_widths, 
                 text = beer_y, 
                 textposition="auto", 
-                marker_color = "rgb(223, 105, 26)", 
+                marker_color = "#007BFF", 
                 textfont = dict(color = "rgb(255, 255, 255)")
             )
         ]
@@ -447,7 +447,7 @@ def game_content(table_dict, game_history, points_development, handout_mistakes,
                 width = bar_widths, 
                 text = goiß_y, 
                 textposition="auto", 
-                marker_color = "rgb(223, 105, 26)", 
+                marker_color = "#007BFF", 
                 textfont = dict(color = "rgb(255, 255, 255)")
             )
         ]
@@ -473,7 +473,7 @@ def game_content(table_dict, game_history, points_development, handout_mistakes,
             dbc.Button(
                 "Add Game Results",
                 id = "add-results-button",
-                color = "secondary",
+                color = "primary",
                 size = "lg",
                 className = "mr-1"
             ),
@@ -484,7 +484,7 @@ def game_content(table_dict, game_history, points_development, handout_mistakes,
             dbc.Button(
                 "Save Game",
                 id = "save-game-button",
-                color = "secondary",
+                color = "primary",
                 size = "lg",
                 className = "mr-1"
             ),
@@ -553,7 +553,7 @@ def game_content(table_dict, game_history, points_development, handout_mistakes,
                     dbc.Button(
                         "Add Handout Mistake",
                         id = "handout-mistake-button",
-                        color = "secondary",
+                        color = "primary",
                         size = "lg",
                         className = "mr-1"
                     ),
@@ -580,7 +580,7 @@ def game_content(table_dict, game_history, points_development, handout_mistakes,
                     dbc.Button(
                         "Add Beer",
                         id = "beer-count-button",
-                        color = "secondary",
+                        color = "primary",
                         size = "lg",
                         className = "mr-1"
                     ),
@@ -607,7 +607,7 @@ def game_content(table_dict, game_history, points_development, handout_mistakes,
                     dbc.Button(
                         "Add Goiß Moß",
                         id = "goiß-count-button",
-                        color = "secondary",
+                        color = "primary",
                         size = "lg",
                         className = "mr-1"
                     ),
@@ -635,7 +635,7 @@ def game_content(table_dict, game_history, points_development, handout_mistakes,
     ]
 
 ########### Initiate the app
-external_stylesheets = [dbc.themes.SUPERHERO]
+external_stylesheets = [dbc.themes.BOOTSTRAP]
 meta_tags = [{"name": "viewport", "content": "width=device-width, initial-scale=1"}]
 server = flask.Flask(__name__)
 app = dash.Dash(
@@ -659,14 +659,14 @@ app.layout = html.Div(
                 dbc.Button(
                     "New Game",
                     id = "new-game-button",
-                    color = "secondary",
+                    color = "primary",
                     className = "mr-1"
                 ),
                 html.Br(),
                 dbc.Button(
                     "Support Me",
                     id = "support-me-button",
-                    color = "secondary",
+                    color = "primary",
                     className = "mr-1"
                 ),
                 html.Br()
