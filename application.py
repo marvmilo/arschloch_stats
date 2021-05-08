@@ -653,28 +653,84 @@ def download(path):
 ########### Set up the layout
 app.layout = html.Div(
     children = [
-        dbc.NavbarSimple(
+        #Navbar
+        dbc.Navbar(
             children = [
-                html.Br(),
-                dbc.Button(
-                    "New Game",
-                    id = "new-game-button",
-                    color = "primary",
-                    className = "mr-1"
+                #navbar title
+                dbc.Row(
+                    children = [
+                        dbc.Col(
+                            " ".join(word.upper()),
+                            style = {
+                                "font-size": "20px",
+                                "color": "white",
+                                "white-space": "nowrap"
+                            },
+                            width = "auto"
+                        )
+                        for word in "Arschloch Stats".split(" ")
+                    ],
+                    style = {
+                        "width": "300px",
+                        "max-width": "50%"
+                    }
                 ),
-                html.Br(),
-                dbc.Button(
-                    "Support Me",
-                    id = "support-me-button",
-                    color = "primary",
-                    className = "mr-1"
-                ),
-                html.Br()
+        
+                #navbar toggler
+                dbc.NavbarToggler(id = "nav-toggler"),
+                
+                #navbar interactions
+                dbc.Collapse(
+                    dbc.Row(
+                        children = [
+                            dbc.Button(
+                                "New Game",
+                                id = "new-game-button",
+                                color = "primary",
+                                className = "mr-1"
+                            ),
+                            dbc.Button(
+                                "Support Me",
+                                id = "support-me-button",
+                                color = "primary",
+                                className = "mr-1"
+                            )
+                        ],
+                        justify = "end",
+                        no_gutters = True,
+                        style = {"width": "100%"}
+                    ),
+                    navbar = True,
+                    id = "nav-collapse"
+                )
             ],
-            brand = "Arschloch Stats",
             color = "primary",
-            dark = True
+            dark = True,
+            style = {"padding": "20px 40px"}
         ),
+        
+        # dbc.NavbarSimple(
+        #     children = [
+        #         html.Br(),
+        #         dbc.Button(
+        #             "New Game",
+        #             id = "new-game-button",
+        #             color = "primary",
+        #             className = "mr-1"
+        #         ),
+        #         html.Br(),
+        #         dbc.Button(
+        #             "Support Me",
+        #             id = "support-me-button",
+        #             color = "primary",
+        #             className = "mr-1"
+        #         ),
+        #         html.Br()
+        #     ],
+        #     brand = "Arschloch Stats",
+        #     color = "primary",
+        #     dark = True
+        # ),
         html.Div(
             children = names_content(),
             id = "content",
@@ -1477,6 +1533,17 @@ def upload_game(filename, n_confirm_invalid, content):
             return return_list(invalid_json_modal = True)
     
     raise PreventUpdate
+
+#navbar collapse callback
+@app.callback(
+    [Output("nav-collapse", "is_open")],
+    [Input("nav-toggler", "n_clicks")],
+    [State("nav-collapse", "is_open")]
+)
+def toggle_navbar_collapse(n_clicks, is_open):
+    if n_clicks:
+        return [not is_open]
+    return [is_open]
 
 ########### Run the app
 if __name__ == '__main__':
