@@ -671,7 +671,7 @@ app.layout = html.Div(
                         for word in "Arschloch Stats".split(" ")
                     ],
                     style = {
-                        "width": "300px",
+                        "width": "250px",
                         "max-width": "50%"
                     }
                 ),
