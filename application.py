@@ -639,6 +639,7 @@ external_stylesheets = [dbc.themes.BOOTSTRAP]
 meta_tags = [{"name": "viewport", "content": "width=device-width, initial-scale=1"}]
 server = flask.Flask(__name__)
 app = dash.Dash(
+    __name__,
     server = server, 
     external_stylesheets=external_stylesheets,
     meta_tags=meta_tags
@@ -689,6 +690,7 @@ app.layout = html.Div(
                                 color = "primary",
                                 className = "mr-1"
                             ),
+                            html.Div(style = {"width": "5px"}),
                             dbc.Button(
                                 "Support Me",
                                 id = "support-me-button",
